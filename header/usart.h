@@ -10,6 +10,7 @@
 #define USART_H_
 
 #include <stdint.h>
+#include <stddef.h>
 
 void usart_init();
 
