@@ -3,8 +3,7 @@
  *
  * Created: 31-May-23 10:14:22 PM
  *  Author: Elmah
- */ 
-
+ */
 
 #ifndef COMMANDHANDLER_H_
 #define COMMANDHANDLER_H_
@@ -12,7 +11,7 @@
 #include <stdbool.h>
 
 #define USART_MSG_BUFFER_SIZE 50
-#define USART_MSG_DATA_SIZE_MAX (USART_MSG_BUFFER_SIZE-2)
+#define USART_MSG_DATA_SIZE_MAX (USART_MSG_BUFFER_SIZE - 2)
 
 #define USART_MSG_MSG_TYPE_POS 0
 #define USART_MSG_DATA_SIZE_POS 2
@@ -21,7 +20,7 @@
 
 #define USART_MSG_CMD_RES_ERROR_TYPE_POS 1
 #define USART_MSG_CMD_RES_HEADER_SIZE 3
-#define USART_MSG_CMD_RES_OK_BUF_SIZE (USART_MSG_CMD_RES_HEADER_SIZE+1)
+#define USART_MSG_CMD_RES_OK_BUF_SIZE (USART_MSG_CMD_RES_HEADER_SIZE + 1)
 
 enum MSG_TYPE
 {
@@ -37,7 +36,7 @@ enum CMD_TYPE
     CMD_TYPE_SETTINGS_SET_QUERY_FREQ,
     CMD_TYPE_SETTINGS_RESET,
     CMD_TYPE_SETTINGS_SAVE,
-    CMD_TYPE_SET_SEGMENT_DISPLAY_NUM, //TEMP - FOR TEST ONLY
+    CMD_TYPE_SET_SEGMENT_DISPLAY_NUM, // TEMP - FOR TEST ONLY
     CMD_TYPE_MAX_VALUE
 };
 
@@ -80,14 +79,14 @@ typedef struct commandHandler_MsgS
     True if message is ready to be handled
     */
     bool ready;
-}commandHandler_MsgS;
+} commandHandler_MsgS;
 
 void commandHandler_init();
 /*
 Command handler logic run every iteration of main loop
 */
 void commandHandler_run();
-void commandHandler_buildCmdResponseHeader(uint8_t* buf, uint8_t dataSize,enum ERROR_TYPE errType);
+void commandHandler_buildCmdResponseHeader(uint8_t *buf, uint8_t dataSize, enum ERROR_TYPE errType);
 /*
 Sends confirmation of successful execution of requested command
 */

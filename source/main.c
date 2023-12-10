@@ -1,9 +1,9 @@
 /*
-* main.c
-*
-* Created: 29-May-23 09:48:58 PM
-*  Author: Elmah
-*/
+ * main.c
+ *
+ * Created: 29-May-23 09:48:58 PM
+ *  Author: Elmah
+ */
 
 #include <stdbool.h>
 #include <avr/io.h>
@@ -21,12 +21,12 @@ static void init()
     commandHandler_init();
     config_init();
 
-    //Turn off built-in LED
-    DDRB|=1<<DDB5;
+    // Turn off built-in LED
+    DDRB |= 1 << DDB5;
 
     sei();
 
-    char initMsg[]={"Minecraft Counter version " SOFT_VERSION " initialized\n"};
+    char initMsg[] = {"Minecraft Counter version " SOFT_VERSION " initialized\n"};
     usart_writeString(initMsg);
 }
 
@@ -34,10 +34,10 @@ int main()
 {
     init();
 
-    while(true)
+    while (true)
     {
         commandHandler_run();
     }
-    
+
     return EXIT_SUCCESS;
 }
